@@ -16,12 +16,12 @@ import OurTeam from "@/components/OurTeam";
 export default function Home() {
   return (
     <main className="overflow-x-clip">
-      <section className="xl:h-screen">
+      <section className="">
         {/* Navbar */}
         <NavBar />
 
         {/* Hero */}
-        <section id="home" className="relative ">
+        <section id="home" className="relative xl:mb-20 flex flex-col justify-center">
           <div className="absolute blur-[600px] bg-p_orange/40 p-96 -z-10 -left-72 -top-56" />
           <div className="absolute blur-[600px] bg-p_green-500/40 p-96 -z-10 -right-72 -top-56 hidden md:block" />
           <Hero />
