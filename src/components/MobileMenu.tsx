@@ -43,19 +43,8 @@ const MobileMenu = () => {
       >
         <ul
           ref={menuRef}
-          className="absolute right-0 p-6 shadow-lg rounded-md flex flex-col space-y-4 w-[40vw] bg-p_green-100 border border-[#defff0] max-w-[180px] font-medium"
+          className="absolute right-0 p-6 shadow-lg rounded-md flex flex-col space-y-4 w-[40vw] bg-[#ffe5cc] border border-[#fdd3ab] max-w-[180px] font-medium"
         >
-          <Link
-            to="stats"
-            spy={true}
-            smooth={true}
-            offset={-50}
-            duration={700}
-          >
-            <p className="transition cursor-pointer hover:text-primary">
-              About Us
-            </p>
-          </Link>
           <Link
             to="whatwedo"
             spy={true}
@@ -67,6 +56,17 @@ const MobileMenu = () => {
               Products
             </p>
           </Link>
+          <Link
+            to="stats"
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={700}
+          >
+            <p className="transition cursor-pointer hover:text-primary">
+              About Us
+            </p>
+          </Link>
           <Link to="SIP" spy={true} smooth={true} offset={40} duration={700}>
             <p className="transition cursor-pointer hover:text-primary">
               SIP Calculator
@@ -76,7 +76,7 @@ const MobileMenu = () => {
             to="portfolio"
             spy={true}
             smooth={true}
-            offset={50}
+            offset={100}
             duration={700}
           >
             <p className="transition cursor-pointer hover:text-primary">

@@ -23,7 +23,7 @@ export default function Home() {
         {/* Hero */}
         <section id="home" className="relative ">
           <div className="absolute blur-[600px] bg-p_orange/40 p-96 -z-10 -left-72 -top-56" />
-          <div className="absolute blur-[600px] bg-p_green-500/40 p-96 -z-10 -right-72 -top-56" />
+          <div className="absolute blur-[600px] bg-p_green-500/40 p-96 -z-10 -right-72 -top-56 hidden md:block" />
           <Hero />
         </section>
       </section>

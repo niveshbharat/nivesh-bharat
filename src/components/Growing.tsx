@@ -28,7 +28,7 @@ const Growing = (props: Props) => {
                     isOpen={activeDisclosure === 0}
                     onToggle={() => handleDisclosureToggle(0)}
                 >
-                    <p>It only takes 5 minutes. Set-up is smooth & simple, with fully customisable page design to reflect your brand lorem dummy.</p>
+                    <p>Begin your investment journey effortlessly.Create your account in moments to start exploring the world of finance. Instant access, endless opportunities.</p>
                 </DisclosureComponent>
 
                 <DisclosureComponent
@@ -36,7 +36,7 @@ const Growing = (props: Props) => {
                     isOpen={activeDisclosure === 1}
                     onToggle={() => handleDisclosureToggle(1)}
                 >
-                    <p>It only takes 5 minutes. Set-up is smooth & simple, with fully customisable page design to reflect your brand lorem dummy.</p>
+                    <p>Stay connected to your investments wherever you are. Easily view and manage your dashboard on the go with our user-friendly app interface.</p>
                 </DisclosureComponent>
 
                 <DisclosureComponent
@@ -44,7 +44,7 @@ const Growing = (props: Props) => {
                     isOpen={activeDisclosure === 2}
                     onToggle={() => handleDisclosureToggle(2)}
                 >
-                    <p>It only takes 5 minutes. Set-up is smooth & simple, with fully customisable page design to reflect your brand lorem dummy.</p>
+                    <p>Embark on your investment journey today. Start investing now and pave the way towards your financial goals with confidence and ease.</p>
                 </DisclosureComponent>
                 
             </div>
