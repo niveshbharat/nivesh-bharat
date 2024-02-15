@@ -15,12 +15,12 @@ const PortfolioCard = ({ title, description, image }: Props) => {
         <h1 className="text-2xl sm:text-3xl font-semibold mt-4">{title}</h1>
         <p className="text-sm sm:text-lg mt-2">{description}</p>
       </div>
-      <div className="relative w-[70vw] sm:w-[50vw] h-[30vh] md:pr-36 my-5">
+      <div className="relative w-[70vw] sm:w-[50vw] h-[30vh] md:pr-36 my-5 mx-4">
         <Image
           src={image}
           alt="portfolio"
           fill
-          className="rounded-3xl aspect-square"
+          className="rounded-3xl object-contain aspect-square"
         />
       </div>
     </div>
