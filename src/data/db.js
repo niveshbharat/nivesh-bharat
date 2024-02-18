@@ -64,7 +64,7 @@ export const review = [
     name: "Sougandh Radhakrishnan",
     designation: "Product Designer- Atlassian",
     desc: "It’s been a long journey with Nivesh Bharat, my first investment started with these guys since their inception when I had no knowledge about managing my investment and how to build my investment portfolio. Nivesh Bharat helped me in building my portfolio from scratch and supported me even in my financial crisis as they guided me in managing my investments and how to funds the crises, which is impeccable. Building a long term investment portfolio basis, one’s risk appetite and goals is Nivesh Bharat expertise and I trust them with my finances and investment. Cheers To Nivesh Bharat for setting a benchmark.",
-    image: "/assets/testimonial.png",
+    image: "/images/Sougandh Radhakrishnan.jpg",
   },
 ];
 
