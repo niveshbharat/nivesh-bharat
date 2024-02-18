@@ -4,36 +4,28 @@ import axios from "axios";
 import Link from "next/link";
 import { useState } from "react";
 import { GrHomeRounded } from "react-icons/gr";
+import { FaTrash } from "react-icons/fa";
 
 type Props = {};
 
 type Item = {
+  _id: string;
   name: string;
   email: string;
   message: string;
+  phone: string;
   createdAt: string;
 };
 
-const AdminPage = (props: Props) => {
+const AdminPage = ({ }: Props) => {
   const [data, setData] = useState([]);
   const [isActive, setIsActive] = useState(true);
   const [page, setPage] = useState(1);
   const [secret, setSecret] = useState("");
 
-  const fetchData = async () => {
+  const fetchData = async (page: any) => {
     try {
-      const res = await axios.post("/api/admin", { secret, page: page + 1, limit: 10 });
-      console.log(res.data);
-      setData(res.data);
-    } catch (error) {
-      alert("Error");
-      setData([]);
-    }
-  };
-
-  const fetchData2 = async () => {
-    try {
-      const res = await axios.post("/api/admin", { secret, page: page - 1, limit: 10 });
+      const res = await axios.post("/api/admin", { secret, page, limit: 10 });
       console.log(res.data);
       setData(res.data);
     } catch (error) {
@@ -58,6 +50,16 @@ const AdminPage = (props: Props) => {
       setData([]);
     }
   };
+
+  const handleDelete = async (id: String) => {
+    try {
+      const res = await axios.delete(`/api/admin`, { params: { id } });
+      console.log(res.data);
+      fetchData(page);
+    } catch (error) {
+      alert("Error deleting the object!");
+    }
+  }
 
   return (
     <div className="bg-zinc-900 overflow-x-clip flex items-center justify-center h-full min-h-screen">
@@ -84,23 +86,35 @@ const AdminPage = (props: Props) => {
           MESSAGES
         </p>
         {data.map((item: Item, index) => (
-          <div key={index} className="bg-zinc-800 mx-20 cursor-default hover:scale-105 p-8 rounded-xl my-8 transition-all">
-            <p className="text-zinc-500">
-              <span className="font-bold ">Date:</span>{" "}
-              {item.createdAt.slice(0, 10)}
-            </p>
-            <p className="text-zinc-500">
-              <span className="font-bold ">Name:</span> {item.name}
-            </p>
-            <p className="text-zinc-500">
-              <span className="font-bold ">Email:</span> {item.email}
-            </p>
-            <p className="text-zinc-500">
-              <span className="font-bold ">Message:</span> {item.message}
-            </p>
+          <div key={index} className="flex justify-between bg-zinc-800 mx-20 cursor-default p-8 rounded-xl my-8 transition-all">
+            <div>
+              <p className="text-zinc-500">
+                <span className="font-bold ">_id:</span> {item._id}
+              </p>
+              <p className="text-zinc-500">
+                <span className="font-bold ">Date:</span>{" "}
+                {item.createdAt.slice(0, 10)}
+              </p>
+              <p className="text-zinc-500">
+                <span className="font-bold ">Name:</span> {item.name}
+              </p>
+              {item.email && (<p className="text-zinc-500">
+                <span className="font-bold ">Email:</span> {item.email}
+              </p>)}
+              {item.phone && (<p className="text-zinc-500">
+                <span className="font-bold ">Phone:</span> {item.phone}
+              </p>)}
+              <p className="text-zinc-500">
+                <span className="font-bold ">Message:</span> {item.message}
+              </p>
+            </div>
+
+            <button className="hover:scale-125 transition-all" onClick={
+              () => handleDelete(item._id)
+            }><FaTrash className="text-red-400" /></button>
           </div>
         ))}
-        <Pagination data={data} page={page} setPage={setPage} fetchData={fetchData} fetchData2={fetchData2} />
+        <Pagination data={data} page={page} setPage={setPage} fetchData={()=>fetchData(page+1)} fetchData2={()=>{fetchData(page+1)}} />
       </div>
     </div>
   );

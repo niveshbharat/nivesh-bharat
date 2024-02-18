@@ -1,5 +1,6 @@
 import contacts from "@/models/contact";
 import { connectToDB } from "@/lib/helpers";
+import { type NextRequest } from 'next/server'
 
 export async function POST(request: Request) {
   try {
@@ -19,6 +20,17 @@ export async function POST(request: Request) {
       .exec();
 
     return new Response(JSON.stringify(allContacts));
+  } catch (error) {
+    return new Response("Server Error", { status: 500 });
+  }
+}
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const id = request.nextUrl.searchParams.get('id');
+    await connectToDB();
+    const deletedContact = await contacts.findByIdAndDelete(id).exec();
+    return new Response(JSON.stringify(deletedContact));
   } catch (error) {
     return new Response("Server Error", { status: 500 });
   }

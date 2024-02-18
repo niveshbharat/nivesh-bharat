@@ -16,12 +16,16 @@ const Growing = (props: Props) => {
     };
 
     return (
-        <div className="w-full max-w-7xl mb-20 md:mb-0 md:h-[600px] lg:h-[650px] relative md:grid grid-cols-2 md:gap-20">
-            <div className="mx-10 mt-5">
+        <div className="w-full max-w-7xl mb-12 md:mb-0 md:h-[600px] lg:h-[650px] relative md:grid grid-cols-2 md:gap-20">
+            <div className="flex flex-col mx-10 mt-5">
                 <h1 className="text-5xl sm:text-4xl lg:text-6xl font-semibold">Growing Together</h1>
                 <div className="w-[30vw] mt-4 mb-2">
                     <Image src={underline} alt="underline" className="w-auto h-auto" />
                 </div>
+
+                
+
+                <Image src={mobile} alt="Mobile" className="w-[40vw] ml-2 md:hidden my-8" />
 
                 <DisclosureComponent
                     title="Register and create your account instantly."
@@ -46,8 +50,8 @@ const Growing = (props: Props) => {
                 >
                     <p>Embark on your investment journey today. Start investing now and pave the way towards your financial goals with confidence and ease.</p>
                 </DisclosureComponent>
-                
             </div>
+
 
             <div className="relative hidden md:block">
                 <Image src={mobile} alt="Mobile" className="absolute z-10 top-[10vw] -left-10 w-[20vw] max-w-[200px]" />

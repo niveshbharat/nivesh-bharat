@@ -13,10 +13,13 @@ const Contact = () => {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    if (!data.name || !data.email || !data.message) return alert("Please fill in all fields");
+    if (!data.name || !data.message || !data.phone || !data.email) return alert("All fields are required");
 
     const email = String(data.email);
     if (!email.includes("@") || !email.includes(".")) return alert("Invalid email");
+    
+    const phone = String(data.phone);
+    if (phone.length !== 10 || !/^\d+$/.test(phone)) return alert("Invalid Phone Number");
 
     const name = String(data.name);
     if (name.length < 3) return alert("Name must be at least 3 characters long");
@@ -43,19 +46,25 @@ const Contact = () => {
           <form onSubmit={handleSubmit} className="flex flex-col items-left justify-center">
             <div className="py-2">
               <label htmlFor="name" className="text-[15px]">
-                Name
+                Name *
               </label>
               <input id="name" name="name" type="text" className="rounded-sm h-auto text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full" />
             </div>
             <div className="py-2">
               <label htmlFor="email" className="text-[15px]">
-                Email
+                Email *
               </label>
               <input id="email" name="email" type="text" className="rounded-sm h-auto text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full" />
             </div>
             <div className="py-2">
+              <label htmlFor="phone" className="text-[15px]">
+                Phone Number *
+              </label>
+              <input id="phone" name="phone" type="text" className="rounded-sm h-auto text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full" />
+            </div>
+            <div className="py-2">
               <label htmlFor="message" className="text-[15px]">
-                Message
+                Message *
               </label>
               <textarea id="message" name="message" className="rounded-sm h-24 text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full" />
             </div>

@@ -46,17 +46,6 @@ const MobileMenu = () => {
           className="absolute right-0 p-6 shadow-lg rounded-md flex flex-col space-y-4 w-[40vw] bg-[#ffe5cc] border border-[#fdd3ab] max-w-[180px] font-medium"
         >
           <Link
-            to="whatwedo"
-            spy={true}
-            smooth={true}
-            offset={-50}
-            duration={700}
-          >
-            <p className="transition cursor-pointer hover:text-primary">
-              Products
-            </p>
-          </Link>
-          <Link
             to="stats"
             spy={true}
             smooth={true}
@@ -65,6 +54,17 @@ const MobileMenu = () => {
           >
             <p className="transition cursor-pointer hover:text-primary">
               About Us
+            </p>
+          </Link>
+          <Link
+            to="whatwedo"
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={700}
+          >
+            <p className="transition cursor-pointer hover:text-primary">
+              Products
             </p>
           </Link>
           <Link to="SIP" spy={true} smooth={true} offset={40} duration={700}>
@@ -81,6 +81,17 @@ const MobileMenu = () => {
           >
             <p className="transition cursor-pointer hover:text-primary">
               Portfolio
+            </p>
+          </Link>
+          <Link
+            to="ourteam"
+            spy={true}
+            smooth={true}
+            offset={-20}
+            duration={700}
+          >
+            <p className="transition cursor-pointer hover:text-primary">
+              Our Team
             </p>
           </Link>
           <Link

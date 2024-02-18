@@ -17,7 +17,7 @@ function formatIndianNumber(s: string) {
 const SIP = (props: Props) => {
   const [investmentType, setInvestmentType] = useState("SIP");
   const [monthlySIPAmount, setMonthlySIPAmount] = useState(1000);
-  const [lumpsumAmount, setLumpsumAmount] = useState(1000);
+  const [lumpsumAmount, setLumpsumAmount] = useState(10000);
   const [investmentPeriod, setInvestmentPeriod] = useState(10);
   const [expectedReturn, setExpectedReturn] = useState(12);
 
@@ -27,7 +27,6 @@ const SIP = (props: Props) => {
     } else if (investmentType === "Lumpsum") {
       return lumpsumAmount;
     } else {
-      // Handle unsupported investment type or provide a default value
       return 0;
     }
   };
@@ -48,7 +47,6 @@ const SIP = (props: Props) => {
         totalInvestment * Math.pow(1 + rateOfReturn, investmentPeriod);
       return futureValue;
     } else {
-      // Handle unsupported investment type or provide a default value
       return 0;
     }
   };
@@ -61,7 +59,7 @@ const SIP = (props: Props) => {
     labels: ["Investment", "Profit"],
     datasets: [
       {
-        label: "Profit",
+        label: "Value",
         data: [calculateInvestedAmount().toFixed(0), profit().toFixed(0)],
         backgroundColor: ["#FF9933", "#0EA362"],
         borderColor: ["#FF9933", "#0EA362"],
@@ -134,9 +132,9 @@ const SIP = (props: Props) => {
                   </p>
                 </span>
                 <Slider
-                  min={1000}
+                  min={10000}
                   max={5000000}
-                  step={1000}
+                  step={10000}
                   value={lumpsumAmount}
                   onChange={(value) => setLumpsumAmount(value as number)}
                 />
@@ -193,7 +191,7 @@ const SIP = (props: Props) => {
           <div className="flex flex-col mt-4 justify-center">
             <p>
               Estimated Return:{" "}
-              <span className="text-lg text-p_orange">
+              <span className="text-lg">
                 Rs. {formatIndianNumber(profit().toFixed(0))}
               </span>
             </p>

@@ -2,9 +2,9 @@ import contacts from "@/models/contact";
 import { connectToDB } from "@/lib/helpers";
 
 export async function POST(request: Request) {
-  const { email, name, message } = await request.json();
+  const { email, name, phone, message } = await request.json();
 
-  if (!email || !name || !message) {
+  if (!email || !name || !phone || !message) {
     return new Response("Invalid data", { status: 400 });
   }
 
@@ -37,6 +37,7 @@ export async function POST(request: Request) {
     const newContact = new contacts({
       email,
       name,
+      phone,
       message,
     });
     await newContact.save();

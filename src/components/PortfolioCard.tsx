@@ -20,6 +20,7 @@ const PortfolioCard = ({ title, description, image }: Props) => {
           src={image}
           alt="portfolio"
           fill
+          sizes="100%"
           className="rounded-3xl object-contain aspect-square"
         />
       </div>

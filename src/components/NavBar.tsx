@@ -45,7 +45,7 @@ const NavBar = () => {
             Portfolio
           </p>
         </Link>
-        <Link to="ourteam" spy={true} smooth={true} offset={0} duration={700}>
+        <Link to="ourteam" spy={true} smooth={true} offset={-50} duration={700}>
           <p className="transition cursor-pointer hover:text-primary hover:cursor-pointer hover:scale-105 duration-300 hover:text-[#ff9933]">
             Our Team
           </p>

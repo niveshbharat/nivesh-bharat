@@ -19,35 +19,35 @@ const WhatWeDo = () => {
       <div className="w-full mt-2 mb-10 flex justify-center">
         <Image src={underline} alt="underline" className="w-auto h-auto" />
       </div>
-      <div className="grid grid-cols-1 gap-16 mt-4 sm:grid-cols-1 lg:sm:grid-cols-2">
+      <div className="grid grid-cols-1 gap-16 mt-4 lg:sm:grid-cols-2">
         <Card
           title="Mutual Funds"
-          description="There are various types of investments available and you can choose investments"
+          description="A professionally created basket of funds designed to help investors build diversified mutual fund portfolio for long term wealth creation."
           image={card1}
         />
         <Card
           title="Stock Broking"
-          description="There are various types of investments available and you can choose investments"
+          description="Providing stock broking solutions through trading platform and application for direct stock investing."
           image={card2}
         />
         <Card
           title="Insurance"
-          description="There are various types of investments available and you can choose investments"
+          description="We offer wide range of insurance products tailored according to your requirement which can help your loved ones in any emergency and can secure their future."
           image={card3}
         />
         <Card
           title="PMS and AIFs"
-          description="There are various types of investments available and you can choose investments"
+          description="We offer and distribute PMS & AIFs products basis client requirement and risk appetite for long term wealth creation."
           image={card4}
         />
         <Card
           title="Bonds"
-          description="There are various types of investments available and you can choose investments"
+          description="A professionally created basket of funds designed to help investors build a stable and fixed return delivering portfolio with low risk."
           image={card5}
         />
         <Card
           title="Financial & Tax planning"
-          description="There are various types of investments available and you can choose investments"
+          description="We offer personalised financial and tax planning solutions for better management of investment and taxes."
           image={card6}
         />
         </div>
