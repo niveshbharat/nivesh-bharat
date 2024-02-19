@@ -86,11 +86,8 @@ const AdminPage = ({ }: Props) => {
           MESSAGES
         </p>
         {data.map((item: Item, index) => (
-          <div key={index} className="flex justify-between bg-zinc-800 mx-20 cursor-default p-8 rounded-xl my-8 transition-all">
+          <div key={index} className="flex justify-between bg-zinc-800 mx-20 cursor-default p-8 rounded-xl my-8 transition-all gap-4">
             <div>
-              <p className="text-zinc-500">
-                <span className="font-bold ">_id:</span> {item._id}
-              </p>
               <p className="text-zinc-500">
                 <span className="font-bold ">Date:</span>{" "}
                 {item.createdAt.slice(0, 10)}

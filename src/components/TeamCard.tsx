@@ -60,7 +60,7 @@ const TeamCard = ({
           </div>
         </div>
       </div>
-      <p className="sm:mt-2 sm:text-justify text-[13px]">{desc}</p>
+      <p className="sm:mt-2 text-[13px]">{desc}</p>
     </div>
   );
 };

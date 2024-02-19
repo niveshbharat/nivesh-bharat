@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import underline from "../../../public/assets/underline.svg";
 import { review } from "@/data/db";
@@ -8,6 +8,34 @@ import ReviewCard from "../../components/ReviewCard";
 
 const Review = () => {
   const reviewRef = useRef<HTMLDivElement>(null);
+  const [autoScroll, setAutoScroll] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setAutoScroll(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (reviewRef.current) {
+      observer.observe(reviewRef.current);
+    }
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (reviewRef.current && autoScroll) {
+        reviewRef.current.scrollLeft += 400;
+      }
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [autoScroll, reviewRef]);
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -18,7 +46,9 @@ const Review = () => {
         <Image src={underline} alt="underline" className="w-[300px]" />
       </div>
 
-      <div
+      <div onClick={()=>{
+            setAutoScroll(false);
+          }}
         className="max-w-[95vw] flex overflow-x-scroll space-x-10 scrollbar-hide mb-10 scroll-smooth px-24 snap-x mt-12 snap-mandatory"
         ref={reviewRef}
       >
@@ -32,7 +62,7 @@ const Review = () => {
           />
         ))}
       </div>
-      <Navigate scrollRef={reviewRef} scrollBy={500} />
+      <Navigate scrollRef={reviewRef} setAutoScroll={setAutoScroll} scrollBy={500} />
     </div>
   );
 };

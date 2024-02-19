@@ -1,6 +1,6 @@
 "use client";
 import PortfolioCard from "@/components/PortfolioCard";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navigate from "@/components/Navigate";
 import Image from "next/image";
 import underline from "../../../public/assets/underline.svg";
@@ -8,6 +8,34 @@ import { portfolios } from "../../data/db";
 
 function Portfolio() {
   const portfoliosRef = useRef<HTMLDivElement>(null);
+  const [autoScroll, setAutoScroll] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setAutoScroll(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (portfoliosRef.current) {
+      observer.observe(portfoliosRef.current);
+    }
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (portfoliosRef.current && autoScroll) {
+        portfoliosRef.current.scrollLeft += 400;
+      }
+    }, 3000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [autoScroll, portfoliosRef]);
 
   return (
     //Portfolios
@@ -21,7 +49,9 @@ function Portfolio() {
         </div>
       </div>
 
-      <div
+      <div onClick={() => {
+        setAutoScroll(false);
+      }}
         ref={portfoliosRef}
         className="max-w-[95vw] flex overflow-x-scroll space-x-10 scrollbar-hide mb-10 scroll-smooth px-24 snap-x snap-mandatory"
       >
@@ -35,7 +65,7 @@ function Portfolio() {
         ))}
       </div>
 
-      <Navigate scrollRef={portfoliosRef} scrollBy={400} />
+      <Navigate scrollRef={portfoliosRef} setAutoScroll={setAutoScroll} scrollBy={400} />
     </div>
   );
 }

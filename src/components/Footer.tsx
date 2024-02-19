@@ -22,6 +22,7 @@ const Footer = () => {
           <div>
             <span className="font-bold">Contact Us: </span>
             <p>Call: +91-8860100478</p>
+            <p>+91-9799940478</p>
             <p>Email: care@niveshbharat.com</p>
           </div>
           <div>

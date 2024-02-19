@@ -43,7 +43,7 @@ const MobileMenu = () => {
       >
         <ul
           ref={menuRef}
-          className="absolute right-0 p-6 shadow-lg rounded-md flex flex-col space-y-4 w-[40vw] bg-[#ffe5cc] border border-[#fdd3ab] max-w-[180px] font-medium"
+          className="absolute right-0 p-6 shadow-lg rounded-md flex flex-col space-y-4 w-[40vw] bg-p_green-100 border border-p_green-100 max-w-[180px] font-medium"
         >
           <Link
             to="stats"
