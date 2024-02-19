@@ -37,8 +37,7 @@ const SIP = (props: Props) => {
       const totalMonths = investmentPeriod * 12;
       const futureValue =
         monthlySIPAmount *
-        ((Math.pow(1 + monthlyRateOfReturn, totalMonths) - 1) /
-          monthlyRateOfReturn);
+        (((Math.pow(1 + monthlyRateOfReturn, totalMonths) - 1) / monthlyRateOfReturn) * (1 + monthlyRateOfReturn));
       return futureValue;
     } else if (investmentType === "Lumpsum") {
       const totalInvestment = lumpsumAmount;
