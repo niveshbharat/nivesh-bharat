@@ -19,7 +19,7 @@ const SIP = (props: Props) => {
   const [monthlySIPAmount, setMonthlySIPAmount] = useState(1000);
   const [lumpsumAmount, setLumpsumAmount] = useState(10000);
   const [investmentPeriod, setInvestmentPeriod] = useState(10);
-  const [expectedReturn, setExpectedReturn] = useState(12.17);
+  const [expectedReturn, setExpectedReturn] = useState(12);
 
   const calculateInvestedAmount = () => {
     if (investmentType === "SIP") {
@@ -161,12 +161,12 @@ const SIP = (props: Props) => {
               <span className="flex justify-between pb-2">
                 <p>Expected Return (p.a.)</p>
                 <p className="px-2 py-1 bg-zinc-200 text-black rounded-lg">
-                  {Math.round(expectedReturn-0.2)}%
+                  {expectedReturn}%
                 </p>
               </span>
               <Slider
-                min={1.17}
-                max={40.17}
+                min={1}
+                max={40}
                 step={1}
                 value={expectedReturn}
                 onChange={(value) => setExpectedReturn(value as number)}
