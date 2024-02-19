@@ -9,8 +9,6 @@ import Footer from "@/components/Footer";
 import SIP from "@/components/SIP";
 import Image from "next/image";
 import gallery_bg from "../../public/assets/gallery_bg.svg";
-import a1 from "../../public/assets/1.svg";
-import a2 from "../../public/assets/2.svg";
 import Growing from "@/components/Growing";
 import Contact from "@/components/Contact";
 import OurTeam from "@/components/OurTeam";
@@ -24,8 +22,8 @@ export default function Home() {
 
         {/* Hero */}
         <section id="home" className="relative xl:mb-20 flex flex-col justify-center">
-          <Image src={a2} alt="a1" className="absolute opacity-50 blur-[150px] md:blur-[600px] -z-10 -left-[60vw] -top-[40vw] md:-left-[60vw] md:-top-[60vw]" layout="fixed" />
-          <Image src={a1} alt="a2" className="absolute opacity-50 blur-[150px] md:blur-[600px] -z-10 -right-[60vw] bottom-0 md:-right-[60vw] md:-top-[60vw]" layout="fixed" />
+          <div className="absolute blur-[600px] bg-p_orange/40 p-96 -z-10 -left-72 -top-56" />
+          <div className="absolute blur-[600px] bg-p_green-500/40 p-96 -z-10 -right-72 -top-56" />
           <Hero />
         </section>
       </section>
