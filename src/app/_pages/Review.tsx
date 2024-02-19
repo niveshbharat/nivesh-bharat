@@ -30,7 +30,7 @@ const Review = () => {
       if (reviewRef.current && autoScroll) {
         reviewRef.current.scrollLeft += 400;
       }
-    }, 2000);
+    }, 4000);
 
     return () => {
       clearInterval(interval);
