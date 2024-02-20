@@ -5,6 +5,7 @@ import stats2 from "../../public/assets/about_AUM.svg";
 import stats3 from "../../public/assets/about_expert.svg";
 import underline from "../../public/assets/underline.svg";
 import { AboutCard } from "./AboutCard";
+import { stats }  from "@/data/db";
 
 const Statistics = () => {
   return (
@@ -14,9 +15,9 @@ const Statistics = () => {
         <Image src={underline} alt="underline" className="w-auto h-auto" />
       </div>
       <div className="flex flex-col sm:flex-row gap-10 p-10 justify-between">
-        <AboutCard image={stats1} title="1000+" body="Trusted Clients" />
-        <AboutCard image={stats2} title="Rs. 30Cr+" body="Assets Under Management (AUM)" />
-        <AboutCard image={stats3} title="10+ Years" body="Total Experience" />
+        <AboutCard image={stats1} title={stats.clients} body="Trusted Clients" />
+        <AboutCard image={stats2} title={stats.AUM} body="Assets Under Management (AUM)" />
+        <AboutCard image={stats3} title={stats.experience} body="Total Experience" />
       </div>
 
       <p className="px-8 pb-8 text-center">

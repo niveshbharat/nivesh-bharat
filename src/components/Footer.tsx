@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import logo from "../../public/assets/logo_3.svg";
+import { footerInfo } from "@/data/db";
 
 const Footer = () => {
   return (
@@ -11,32 +12,30 @@ const Footer = () => {
         </div>
         <div className="flex flex-col gap-1 text-center sm:w-[40%] mt-4">
           <span className="font-bold">Address: </span>
-          <p className="">Mission Billion Finserv Private Limited</p>
+          <p className="">{footerInfo.addressLine1}</p>
           <p>
-            1st Floor, Plot. No. 21, Sindhi Colony, Above City Decor, Opposite Gumanpura
-            Flyover, Kota, Rajasthan-324006
+            {footerInfo.addressLine2}
           </p>
-          <p> Nearest Landmark: - DP Jewellers, Kota</p>
+          <p>{footerInfo.addressLine3}</p>
         </div>
         <div className="flex flex-col gap-2 mt-4 text-center">
           <div>
             <span className="font-bold">Contact Us: </span>
-            <p>Call: +91-8860100478</p>
-            <p>+91-9799940478</p>
-            <p>Email: care@niveshbharat.com</p>
+            <p>Call: {footerInfo.mobile1}</p>
+            <p>{footerInfo.mobile2}</p>
+            <p>Email: {footerInfo.email}</p>
           </div>
           <div>
             <span className="font-bold">Business Hours: </span>
-            <p>Monday to Saturday: 10:00 AM to 08:00 PM</p>
-            <p>Sunday: Closed </p>
+            <p>{footerInfo.businessHoursLine1}</p>
+            <p>{footerInfo.businessHoursLine2}</p>
           </div>
         </div>
       </div>
       <hr className="text-[#FFFFFF]" />
       <div className="text-[#BBBBBB]">
         <p className="text-lg m-2 text-center">
-          Mission Billion Finserv Private Limited is an AMFI registered mutual
-          fund distributor (ARN – 283361)
+          {footerInfo.tagline}
         </p>
         <p className="text-[14px] text-center">
           Mutual fund investments are subject to market risks. Please read all

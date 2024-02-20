@@ -1,5 +1,4 @@
 export const review = [
-  
   {
     id: 1,
     name: "Abhinav Goswami",
