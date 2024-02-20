@@ -81,7 +81,7 @@ const AdminPage = ({ }: Props) => {
       </form>
 
       <div className={`${isActive ? "hidden" : ""} text-white`}>
-        <Link href={'/'} className="w-screen flex justify-center mt-8 text-3xl text-center  text-zinc-500"><GrHomeRounded /></Link>
+        <Link href={'/'} className="flex justify-center mt-8 text-3xl text-center text-zinc-500"><GrHomeRounded /></Link>
         <p className="mt-6 text-5xl text-center tracking-widest text-zinc-500">
           MESSAGES
         </p>
