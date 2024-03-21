@@ -86,7 +86,7 @@ const AdminPage = ({ }: Props) => {
           MESSAGES
         </p>
         {data.map((item: Item, index) => (
-          <div key={index} className="flex justify-between bg-zinc-800 mx-20 cursor-default p-8 rounded-xl my-8 transition-all gap-4">
+          <div key={index} className="flex justify-between bg-zinc-800 cursor-default p-8 rounded-xl my-8 transition-all gap-4 overflow-x-scroll scrollbar-hide max-w-[300px] sm:max-w-screen-md mx-20">
             <div>
               <p className="text-zinc-500">
                 <span className="font-bold ">Date:</span>{" "}
@@ -102,16 +102,17 @@ const AdminPage = ({ }: Props) => {
                 <span className="font-bold ">Phone:</span> {item.phone}
               </p>)}
               <p className="text-zinc-500">
-                <span className="font-bold ">Message:</span> {item.message}
+                <span className="font-bold">Message:</span> {item.message}
               </p>
+              <button className="hover:scale-105 mt-2 text-red-400 items-center gap-2 flex transition-all" onClick={
+                () => handleDelete(item._id)
+              }>Delete <FaTrash className="text-red-400" /></button>
             </div>
 
-            <button className="hover:scale-125 transition-all" onClick={
-              () => handleDelete(item._id)
-            }><FaTrash className="text-red-400" /></button>
+
           </div>
         ))}
-        <Pagination data={data} page={page} setPage={setPage} fetchData={()=>fetchData(page+1)} fetchData2={()=>{fetchData(page+1)}} />
+        <Pagination data={data} page={page} setPage={setPage} fetchData={() => fetchData(page + 1)} fetchData2={() => { fetchData(page - 1) }} />
       </div>
     </div>
   );

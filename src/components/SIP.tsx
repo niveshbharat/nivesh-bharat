@@ -110,32 +110,45 @@ const SIP = (props: Props) => {
               <div className="flex flex-col">
                 <span className="flex justify-between pb-2">
                   <p>Monthly SIP Amount</p>
-                  <p className="px-2 py-1 bg-zinc-200 text-black rounded-lg">
-                    Rs. {monthlySIPAmount.toLocaleString('en-IN')}
-                  </p>
+                  <input id="MonthlySIP" placeholder={monthlySIPAmount.toLocaleString('en-IN')} className="placeholder:text-black px-2 py-1 text-center w-24 bg-zinc-200 text-black rounded-lg" onChange={
+                    (e) => setMonthlySIPAmount(parseInt(e.target.value)) 
+                  }/>
                 </span>
                 <Slider
                   min={1000}
                   max={500000}
                   step={1000}
                   value={monthlySIPAmount}
-                  onChange={(value) => setMonthlySIPAmount(value as number)}
+                  onChange={(value) => {
+                    const inputElement1 = document.getElementById('MonthlySIP') as HTMLInputElement
+                    if (inputElement1) {
+                      inputElement1.value = '';
+                    }
+                    setMonthlySIPAmount(value as number)
+                  }}
                 />
               </div>
             ) : (
               <div className="flex flex-col">
                 <span className="flex justify-between pb-2">
                   <p>Lumpsum Amount</p>
-                  <p className="px-2 py-1 bg-zinc-200 text-black rounded-lg">
-                    Rs. {lumpsumAmount.toLocaleString('en-IN')}
-                  </p>
+                  <input id="Lumpsum" placeholder={lumpsumAmount.toLocaleString('en-IN')} className="placeholder:text-black px-2 py-1 text-center w-24 bg-zinc-200 text-black rounded-lg"
+                  onChange={
+                    (e) => setLumpsumAmount(parseInt(e.target.value)) 
+                  }/>
                 </span>
                 <Slider
                   min={10000}
                   max={5000000}
                   step={10000}
                   value={lumpsumAmount}
-                  onChange={(value) => setLumpsumAmount(value as number)}
+                  onChange={(value) => {
+                    const inputElement2 = document.getElementById('Lumpsum') as HTMLInputElement
+                    if (inputElement2) {
+                      inputElement2.value = '';
+                    }
+                    setLumpsumAmount(value as number)
+                  }}
                 />
               </div>
             )}

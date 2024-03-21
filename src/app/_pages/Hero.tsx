@@ -18,7 +18,7 @@ const Hero = () => {
           </ReactTyped>
         </h1>
         <h1 className="md:hidden text-5xl font-bold font-lexend text-center">
-          <p className="">Let&apos;s build your <span className="text-p_green-500">Wealth!</span></p>
+          <p className="">Let&apos;s Build Your <span className="text-p_green-500">Wealth!</span></p>
         </h1>
         <p className="text-xl text-body py-5 px-10">
           We build your Investment Portfolio by customizing your financial

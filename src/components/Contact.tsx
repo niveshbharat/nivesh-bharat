@@ -19,13 +19,15 @@ const Contact = () => {
     if (!email.includes("@") || !email.includes(".")) return alert("Invalid email");
     
     const phone = String(data.phone);
-    if (phone.length !== 10 || !/^\d+$/.test(phone)) return alert("Invalid Phone Number");
+    if (phone.length !== 10 || phone == "0000000000" || !/^\d+$/.test(phone)) return alert("Invalid Phone Number");
 
     const name = String(data.name);
     if (name.length < 3) return alert("Name must be at least 3 characters long");
 
     const message = String(data.message);
     if (message.length < 20) return alert("Message must be at least 10 characters long");
+
+    if (message.length > 500) return alert("Message must be less than 300 characters long");
 
     try {
       await axios.post("/api/contact", data);
