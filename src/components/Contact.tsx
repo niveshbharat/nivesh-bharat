@@ -6,26 +6,32 @@ import contact from "../../public/assets/contact.svg";
 import axios from "axios";
 
 const Contact = () => {
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    if (!data.name || !data.message || !data.phone || !data.email) return alert("All fields are required");
+    if (!data.name || !data.message || !data.phone || !data.email)
+      return alert("All fields are required");
 
     const email = String(data.email);
-    if (!email.includes("@") || !email.includes(".")) return alert("Invalid email");
-    
+    if (!email.includes("@") || !email.includes("."))
+      return alert("Invalid email");
+
     const phone = String(data.phone);
     if (phone.length !== 10 || phone == "0000000000" || !/^\d+$/.test(phone)) return alert("Invalid Phone Number");
 
     const name = String(data.name);
-    if (name.length < 3) return alert("Name must be at least 3 characters long");
+    if (name.length < 3)
+      return alert("Name must be at least 3 characters long");
+    else if (!/^[a-zA-Z0-9]+$/.test(name)) {
+      alert("Name should not contain special characters");
+    }
 
     const message = String(data.message);
-    if (message.length < 20) return alert("Message must be at least 10 characters long");
+    if (message.length < 20)
+      return alert("Message must be at least 10 characters long");
 
     if (message.length > 500) return alert("Message must be less than 300 characters long");
 
@@ -35,7 +41,7 @@ const Contact = () => {
     } catch (error: any) {
       alert(error.response.data || "Failed to submit");
     }
-  }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -45,32 +51,54 @@ const Contact = () => {
       </div>
       <div className="rounded-xl bg-p_darkgreen max-w-8xl text-white p-4 m-8">
         <div className="px-12 lg:grid grid-cols-2 gap-16">
-          <form onSubmit={handleSubmit} className="flex flex-col items-left justify-center">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col items-left justify-center"
+          >
             <div className="py-2">
               <label htmlFor="name" className="text-[15px]">
                 Name *
               </label>
-              <input id="name" name="name" type="text" className="rounded-sm h-auto text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full" />
+              <input
+                id="name"
+                name="name"
+                type="text"
+                className="rounded-sm h-auto text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full"
+              />
             </div>
             <div className="py-2">
               <label htmlFor="email" className="text-[15px]">
                 Email *
               </label>
-              <input id="email" name="email" type="text" className="rounded-sm h-auto text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full" />
+              <input
+                id="email"
+                name="email"
+                type="text"
+                className="rounded-sm h-auto text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full"
+              />
             </div>
             <div className="py-2">
               <label htmlFor="phone" className="text-[15px]">
                 Phone Number *
               </label>
-              <input id="phone" name="phone" type="text" className="rounded-sm h-auto text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full" />
+              <input
+                id="phone"
+                name="phone"
+                type="text"
+                className="rounded-sm h-auto text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full"
+              />
             </div>
             <div className="py-2">
               <label htmlFor="message" className="text-[15px]">
                 Message *
               </label>
-              <textarea id="message" name="message" className="rounded-sm h-24 text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full" />
+              <textarea
+                id="message"
+                name="message"
+                className="rounded-sm h-24 text-black border-[#8D8D8D] border-[0.5px] text-[13px] p-2 w-full"
+              />
             </div>
-            <button type="submit" className="flex items-center py-4 w-[300px]">
+            <button type="submit" className="flex items-center py-4 w-[182px]">
               <p className="font-medium px-8 py-4 text-white transition rounded-md cursor-pointer bg-p_green-500 hover:bg-p_green-800">
                 Send Message
               </p>
@@ -78,11 +106,7 @@ const Contact = () => {
           </form>
           <div className="relative">
             <div className="hidden md:block relative rounded-2xl border-[0.5px] text-white py-4 m-2 md:m-8 items-right">
-              <Image
-                src={contact}
-                alt="contact"
-                className="w-auto h-auto"
-              />
+              <Image src={contact} alt="contact" className="w-auto h-auto" />
             </div>
           </div>
         </div>

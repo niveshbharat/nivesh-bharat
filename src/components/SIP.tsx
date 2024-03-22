@@ -37,7 +37,9 @@ const SIP = (props: Props) => {
       const totalMonths = investmentPeriod * 12;
       const futureValue =
         monthlySIPAmount *
-        (((Math.pow(1 + monthlyRateOfReturn, totalMonths) - 1) / monthlyRateOfReturn) * (1 + monthlyRateOfReturn));
+        (((Math.pow(1 + monthlyRateOfReturn, totalMonths) - 1) /
+          monthlyRateOfReturn) *
+          (1 + monthlyRateOfReturn));
       return futureValue;
     } else if (investmentType === "Lumpsum") {
       const totalInvestment = lumpsumAmount;
@@ -66,6 +68,9 @@ const SIP = (props: Props) => {
       },
     ],
   };
+  data.datasets[0].data = data.datasets[0].data.map((value) =>
+    value.toLocaleString("en-IN", { maximumFractionDigits: 0 })
+  );
 
   return (
     <div className="rounded-xl bg-p_darkgreen max-w-6xl text-white m-10">
@@ -194,10 +199,10 @@ const SIP = (props: Props) => {
               plugins: {
                 legend: {
                   labels: {
-                    color: 'white'
-                  }
-                }
-              }
+                    color: "white",
+                  },
+                },
+              },
             }}
           />
           <div className="flex flex-col mt-4 justify-center">
