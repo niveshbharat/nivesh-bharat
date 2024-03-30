@@ -23,10 +23,7 @@ export async function POST(request: Request) {
       const currentTime = new Date();
       const timeDifference =
         currentTime.getTime() - existingContact.createdAt.getTime();
-
-        console.log(timeDifference)
       const minutesDifference = Math.floor(timeDifference / (1000 * 30));
-      console.log(minutesDifference);
       if (minutesDifference < 1) {
         return new Response("Wait before sending another message", {
           status: 400,

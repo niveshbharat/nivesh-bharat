@@ -25,7 +25,7 @@ const Contact = () => {
     const name = String(data.name);
     if (name.length < 3)
       return alert("Name must be at least 3 characters long");
-    else if (!/^[a-zA-Z0-9]+$/.test(name)) {
+    else if (!/^[a-zA-Z ]+$/.test(name)) {
       alert("Name should not contain special characters");
     }
 

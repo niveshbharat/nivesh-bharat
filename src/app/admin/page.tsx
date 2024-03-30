@@ -26,7 +26,6 @@ const AdminPage = ({ }: Props) => {
   const fetchData = async (page: any) => {
     try {
       const res = await axios.post("/api/admin", { secret, page, limit: 10 });
-      console.log(res.data);
       setData(res.data);
     } catch (error) {
       alert("Error");
@@ -54,7 +53,6 @@ const AdminPage = ({ }: Props) => {
   const handleDelete = async (id: String) => {
     try {
       const res = await axios.delete(`/api/admin`, { params: { id } });
-      console.log(res.data);
       fetchData(page);
     } catch (error) {
       alert("Error deleting the object!");
