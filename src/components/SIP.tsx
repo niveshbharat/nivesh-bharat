@@ -68,9 +68,6 @@ const SIP = (props: Props) => {
       },
     ],
   };
-  data.datasets[0].data = data.datasets[0].data.map((value) =>
-    value.toLocaleString("en-IN", { maximumFractionDigits: 0 })
-  );
 
   return (
     <div className="rounded-xl bg-p_darkgreen max-w-6xl text-white m-10">

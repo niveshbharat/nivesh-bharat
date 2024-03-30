@@ -33,14 +33,7 @@ const Growing = (props: Props) => {
         />
 
         <DisclosureComponent
-          title={
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <RiArrowDropDownLine />
-              <span style={{ marginLeft: "0.5rem" }}>
-                Register and create your account instantly.
-              </span>
-            </div>
-          }
+          title="Register and create your account instantly."
           isOpen={activeDisclosure === 0}
           onToggle={() => handleDisclosureToggle(0)}
         >
@@ -52,14 +45,7 @@ const Growing = (props: Props) => {
         </DisclosureComponent>
 
         <DisclosureComponent
-          title={
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <RiArrowDropDownLine />
-              <span style={{ marginLeft: "0.5rem" }}>
-                View and manage your dashboard easily on the go.
-              </span>
-            </div>
-          }
+          title="View and manage your dashboard easily on the go."
           isOpen={activeDisclosure === 1}
           onToggle={() => handleDisclosureToggle(1)}
         >
@@ -71,12 +57,7 @@ const Growing = (props: Props) => {
         </DisclosureComponent>
 
         <DisclosureComponent
-          title={
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <RiArrowDropDownLine />
-              <span style={{ marginLeft: "0.5rem" }}>Start Investing Now</span>
-            </div>
-          }
+          title="Start Investing Now"
           isOpen={activeDisclosure === 2}
           onToggle={() => handleDisclosureToggle(2)}
         >

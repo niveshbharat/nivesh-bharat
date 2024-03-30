@@ -1,6 +1,7 @@
 // DisclosureFAQ.tsx
 import React from 'react';
 import { Disclosure, Transition } from '@headlessui/react';
+import { RiArrowDropDownLine } from "react-icons/ri";
 
 type DisclosureComponentProps = {
     title: string;
@@ -18,10 +19,13 @@ const DisclosureComponent = ({ title, children, isOpen, onToggle }: DisclosureCo
                         className={`flex text-left font-medium text-xl py-2 ${open ? 'open' : ''}`}
                         onClick={() => {
                             onToggle();
-                            close(); // Close other disclosures when this one is opened
+                            close();
                         }}
                     >
-                        <span>{title}</span>
+                        <div className="flex gap-2 items-center">
+                            <div><RiArrowDropDownLine /></div>
+                            <span>{title}</span>
+                        </div>
                     </Disclosure.Button>
 
                     <Transition
