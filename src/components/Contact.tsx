@@ -26,7 +26,7 @@ const Contact = () => {
     if (name.length < 3)
       return alert("Name must be at least 3 characters long");
     else if (!/^[a-zA-Z ]+$/.test(name)) {
-      alert("Name should not contain special characters");
+      return alert("Name should not contain special characters");
     }
 
     const message = String(data.message);
@@ -37,9 +37,9 @@ const Contact = () => {
 
     try {
       await axios.post("/api/contact", data);
-      alert("Submitted successfully");
+      return alert("Submitted successfully");
     } catch (error: any) {
-      alert(error.response.data || "Failed to submit");
+      return alert(error.response.data || "Failed to submit");
     }
   };
 

@@ -30,9 +30,9 @@ const ReviewCard = ({
         />
       </div>
       <div className="md:pl-10 w-[75%] pt-5 md:pt-0 ">
-        <h3 className="text-xl font-semibold">{name}</h3>
-        <p className="text-sm">{designation}</p>
-        <p className="mt-2 max-w-[75vw] md:max-w-full text-sm text-zinc-700">
+        <h3 className="text-xl font-semibold text-center sm:text-left">{name}</h3>
+        <p className="text-sm text-center sm:text-left">{designation}</p>
+        <p className="mt-2 max-w-[75vw] md:max-w-full text-center sm:text-left text-sm text-zinc-700">
           {desc}
         </p>
       </div>

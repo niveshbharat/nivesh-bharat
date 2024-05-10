@@ -113,8 +113,17 @@ const SIP = (props: Props) => {
                 <span className="flex justify-between pb-2">
                   <p>Monthly SIP Amount</p>
                   <input id="MonthlySIP" placeholder={monthlySIPAmount.toLocaleString('en-IN')} className="placeholder:text-black px-2 py-1 text-center w-24 bg-zinc-200 text-black rounded-lg" onChange={
-                    (e) => setMonthlySIPAmount(parseInt(e.target.value)) 
-                  }/>
+                    (e) => {
+                      if (e.target.value === '') {
+                        setMonthlySIPAmount(1000)
+                      } else if (parseInt(e.target.value) > 500000) {
+                        setMonthlySIPAmount(500000)
+                        e.target.value = '500000'
+                      } else {
+                        setMonthlySIPAmount(parseInt(e.target.value))
+                      }
+                    }
+                  } />
                 </span>
                 <Slider
                   min={1000}
@@ -135,9 +144,18 @@ const SIP = (props: Props) => {
                 <span className="flex justify-between pb-2">
                   <p>Lumpsum Amount</p>
                   <input id="Lumpsum" placeholder={lumpsumAmount.toLocaleString('en-IN')} className="placeholder:text-black px-2 py-1 text-center w-24 bg-zinc-200 text-black rounded-lg"
-                  onChange={
-                    (e) => setLumpsumAmount(parseInt(e.target.value)) 
-                  }/>
+                    onChange={
+                      (e) => {
+                        if (e.target.value === '') {
+                          setLumpsumAmount(1000)
+                        } else if (parseInt(e.target.value) > 500000) {
+                          setLumpsumAmount(5000000)
+                          e.target.value = '5000000'
+                        } else {
+                          setLumpsumAmount(parseInt(e.target.value))
+                        }
+                      }
+                    } />
                 </span>
                 <Slider
                   min={10000}
